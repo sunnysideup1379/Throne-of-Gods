@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBR Template with Book Covers</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Adjust to match the template size */
+            margin: auto;
+        }
+        .background {
+            background-image: url('https://64.media.tumblr.com/f381f6919f037985f68a0343e8c1485e/214c12f2ce6ef4ce-d6/s1280x1920/289aae03e7d919968d41427f2d37919e4e18755e.pnj');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh; /* Ensure the container height matches the background image */
+            position: relative;
+        }
+        .book-spot {
+            position: absolute;
+            width: 120px; /* Adjust based on template dimensions */
+            height: 181px; /* Adjust based on template dimensions */
+            border: 0.50px solid #ddd;
+            background-color: white;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .book-spot input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 96%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+        }
+        .book-spot img {
+            max-width: 110%;
+            max-height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .book-spot img.active {
+            display: block;
+        }
+        .remove-button {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
+            z-index: 2;
+            display: none; /* Hide by default */
+        }
+
+        .book-spot:hover .remove-button {
+            display: block; /* Show button when hovering */
+        }
+
+        /* Text area styling */
+        .book-spot-textarea {
+            width: 120px; /* Match the width of the book spot */
+            height: 40px; /* Adjust height as needed */
+            border: none;
+            border-top: 1px; /* Remove top border to align with book spot */
+            background-color: #994B26; /* Same background color as the book spot */
+            color: #F4E9D4; /* Black text color for visibility */
+            box-sizing: border-box;
+            padding: 5px;
+            margin: 0;
+            resize: none; /* Disable resizing */
+            font-size: 14px;
+	    font-family: Gelio;
+            position: absolute; /* Position absolutely within the container */
+	    text-align: center; /* Center text horizontally */
+	    font-weight: bold; /* Make text bold */
+        }
+	.book-spot-textarea::placeholder {
+            color: #F4E9D4; /* Set to your desired placeholder color */
+            font-style: italic; /* Optional: makes the placeholder text italic */
+        }
+
+        /* Positioning book spots */
+        .spot-1 { top: 216px; left: 45px; }
+        .spot-2 { top: 216px; left: 189.5px; }
+        .spot-3 { top: 216px; left: 334px; }
+        .spot-4 { top: 465px; left: 45px; }
+        .spot-5 { top: 465px; left: 189.5px; }
+        .spot-6 { top: 465px; left: 334px; }
+
+        /* Positioning text areas */
+        .textarea-1 { top: 397px; left: 45px; } /* Adjust top value to position correctly */
+        .textarea-2 { top: 397px; left: 189.5px; } /* Adjust top value to position correctly */
+        .textarea-3 { top: 397px; left: 334px; } /* Adjust top value to position correctly */
+        .textarea-4 { top: 646px; left: 45px; } /* Adjust top value to position correctly */
+        .textarea-5 { top: 646px; left: 189.5px; } /* Adjust top value to position correctly */
+        .textarea-6 { top: 646px; left: 334px; } /* Adjust top value to position correctly */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <!-- Book spots -->
+            <div class="book-spot spot-1">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <div class="book-spot spot-2">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <div class="book-spot spot-3">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <div class="book-spot spot-4">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <div class="book-spot spot-5">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <div class="book-spot spot-6">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+                <button class="remove-button" onclick="removeImage(this)">Remove</button>
+            </div>
+            <!-- Text areas -->
+            <textarea class="book-spot-textarea textarea-1" placeholder="Add text here..."></textarea>
+            <textarea class="book-spot-textarea textarea-2" placeholder="Add text here..."></textarea>
+            <textarea class="book-spot-textarea textarea-3" placeholder="Add text here..."></textarea>
+            <textarea class="book-spot-textarea textarea-4" placeholder="Add text here..."></textarea>
+            <textarea class="book-spot-textarea textarea-5" placeholder="Add text here..."></textarea>
+            <textarea class="book-spot-textarea textarea-6" placeholder="Add text here..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        function updateImage(input) {
+            var img = input.nextElementSibling;
+            img.src = input.value;
+            img.classList.add('active');
+        }
+
+        function removeImage(button) {
+            var bookSpot = button.parentElement;
+            var input = bookSpot.querySelector('input');
+            var img = bookSpot.querySelector('img');
+
+            // Clear the input field
+            input.value = '';
+
+            // Remove the image source and hide the image
+            img.src = '';
+            img.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
