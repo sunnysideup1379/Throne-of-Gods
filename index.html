@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBR Template with Book Covers</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1280px; /* Adjust to match the template size */
+            margin: auto;
+        }
+        .background {
+            background-image: url('https://64.media.tumblr.com/80db7430bc54f87e5a7c5daa3f0726f8/66fafce75436bd6c-3b/s1280x1920/1d44e45e3ca53874c96e91fc6ed028998b7d38c2.pnj');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: auto;
+        }
+        .book-spot {
+            position: absolute;
+            width: 160px; /* Adjust based on template dimensions */
+            height: 240px; /* Adjust based on template dimensions */
+            border: 2px solid #ddd;
+            background-color: white;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .book-spot input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+        }
+        .book-spot img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .book-spot img.active {
+            display: block;
+        }
+
+        /* Positioning book spots */
+        .spot-1 { top: 200px; left: 50px; }
+        .spot-2 { top: 200px; left: 250px; }
+        .spot-3 { top: 200px; left: 450px; }
+        .spot-4 { top: 500px; left: 50px; }
+        .spot-5 { top: 500px; left: 250px; }
+        .spot-6 { top: 500px; left: 450px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <!-- Book spots -->
+            <div class="book-spot spot-1">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+            <div class="book-spot spot-2">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+            <div class="book-spot spot-3">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+            <div class="book-spot spot-4">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+            <div class="book-spot spot-5">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+            <div class="book-spot spot-6">
+                <input type="text" placeholder="Enter book cover URL" oninput="updateImage(this)">
+                <img src="" alt="Book Cover">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateImage(input) {
+            var img = input.nextElementSibling;
+            img.src = input.value;
+            img.classList.add('active');
+        }
+    </script>
+</body>
+</html>
